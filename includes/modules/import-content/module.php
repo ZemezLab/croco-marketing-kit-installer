@@ -382,42 +382,42 @@ class Module extends Module_Base {
 	 */
 	public function remap_all( $importer ) {
 
-		//require_once jdi()->path( 'includes/import/class-jet-data-importer-remap-callbacks.php' );
+		new Remap_Callbacks( $importer );
 
 		/**
 		 * Attach all posts remapping related callbacks to this hook
 		 *
 		 * @param  array Posts remapping data. Format: old_id => new_id
 		 */
-		do_action( 'jet-data-importer/import/remap-posts', $importer->cache->get( 'posts', 'mapping' ) );
+		do_action( 'croco-mki/import/remap-posts', $importer->cache->get( 'posts', 'mapping' ) );
 
 		/**
 		 * Attach all terms remapping related callbacks to this hook
 		 *
 		 * @param  array Terms remapping data. Format: old_id => new_id
 		 */
-		do_action( 'jet-data-importer/import/remap-terms', $importer->cache->get( 'term_id', 'mapping' ) );
+		do_action( 'croco-mki/import/remap-terms', $importer->cache->get( 'term_id', 'mapping' ) );
 
 		/**
 		 * Attach all comments remapping related callbacks to this hook
 		 *
 		 * @param  array COmments remapping data. Format: old_id => new_id
 		 */
-		do_action( 'jet-data-importer/import/remap-comments', $importer->cache->get( 'comments', 'mapping' ) );
+		do_action( 'croco-mki/import/remap-comments', $importer->cache->get( 'comments', 'mapping' ) );
 
 		/**
 		 * Attach all posts_meta remapping related callbacks to this hook
 		 *
 		 * @param  array posts_meta data. Format: new_id => related keys array
 		 */
-		do_action( 'jet-data-importer/import/remap-posts-meta', $importer->cache->get( 'posts_meta', 'requires_remapping' ) );
+		do_action( 'croco-mki/import/remap-posts-meta', $importer->cache->get( 'posts_meta', 'requires_remapping' ) );
 
 		/**
 		 * Attach all terms meta remapping related callbacks to this hook
 		 *
 		 * @param  array terms meta data. Format: new_id => related keys array
 		 */
-		do_action( 'jet-data-importer/import/remap-terms-meta', $importer->cache->get( 'terms_meta', 'requires_remapping' ) );
+		do_action( 'croco-mki/import/remap-terms-meta', $importer->cache->get( 'terms_meta', 'requires_remapping' ) );
 
 	}
 
